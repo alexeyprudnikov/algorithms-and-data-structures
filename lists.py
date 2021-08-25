@@ -1,66 +1,66 @@
 import random
 
-input_array = list(random.choices(range(-100, 100), k=25))
+input_list = list(random.choices(range(-100, 100), k=25))
 
 
 def start():
-    print('1). Arrays algorithms')
-    print('Input array:')
-    print(input_array)
+    print('1). Lists algorithms')
+    print('Input list:')
+    print(input_list)
     print('Selection sort:')
-    output_array_1 = selection_sort(input_array)
-    print(output_array_1)
+    output_list = selection_sort(input_list)
+    print(output_list)
     print('Selection sort recursive:')
-    output_array_2 = selection_sort_recursive(input_array)
-    print(output_array_2)
+    output_list = selection_sort_recursive(input_list)
+    print(output_list)
     print('Bubble sort:')
-    output_array_3 = bubble_sort(input_array)
-    print(output_array_3)
+    output_list = bubble_sort(input_list)
+    print(output_list)
 
 
 # selection sort
-def selection_sort(array):
-    # loop through array
-    for i in range(len(array)):
+def selection_sort(list):
+    # loop through list
+    for i in range(len(list)):
         # init min index as first index
         min_index = i
-        # find index of min value in rest array
-        for j in range(i+1, len(array)):
-            if array[j] < array[min_index]:
+        # find index of min value in rest list
+        for j in range(i+1, len(list)):
+            if list[j] < list[min_index]:
                 min_index = j
         # if new min index, then swap elements
         if min_index > i:
-            array[min_index], array[i] = array[i], array[min_index]
-    return array
+            list[min_index], list[i] = list[i], list[min_index]
+    return list
 
 
 # selection sort with recursion
-def selection_sort_recursive(array, first_index=0):
+def selection_sort_recursive(list, first_index=0):
     # init min index as first index
     min_index = first_index
-    # find index of min value in array
-    for i in range(first_index, len(array)):
-        if array[i] < array[min_index]:
+    # find index of min value in list
+    for i in range(first_index, len(list)):
+        if list[i] < list[min_index]:
             min_index = i
     # if new min index, then swap elements
     if min_index > first_index:
-        array[min_index], array[first_index] = array[first_index], array[min_index]
+        list[min_index], list[first_index] = list[first_index], list[min_index]
     # call a recursion with next first index till penultimate index
-    if first_index < len(array) - 2:
-        array = selection_sort_recursive(array, first_index + 1)
-    return array
+    if first_index < len(list) - 2:
+        list = selection_sort_recursive(list, first_index + 1)
+    return list
 
 
 #bubble sort
-def bubble_sort(array):
-    # loop through array
-    for i in range(len(array)):
+def bubble_sort(list):
+    # loop through list
+    for i in range(len(list)):
         try:
             # next index
             j = i + 1
             # if current value > next value, swap elements
-            if array[i] > array[j]:
-                array[i], array[j] = array[j], array[i]
+            if list[i] > list[j]:
+                list[i], list[j] = list[j], list[i]
         except IndexError:
             # if next list index does not exists -> end of list, return
-            return array
+            return list
