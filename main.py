@@ -1,4 +1,4 @@
-import arrays
+import lists
 print('Algorithms and Data Structures examples')
 
-arrays.start()
+lists.start()
