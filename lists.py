@@ -1,5 +1,6 @@
 import random
 
+# generate random lists from -100 to 100 of 25 elements
 input_list = list(random.choices(range(-100, 100), k=25))
 
 
